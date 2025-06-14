@@ -9,7 +9,11 @@ DATABASE_URL = settings.DATABASE_URL
 
 # PostgreSQL example:
 # DATABASE_URL = "postgresql://user:password@localhost/dbname"
+if settings.DEBUG:
+    engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})  
 
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})  
+engine = create_engine(DATABASE_URL)  
+
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
