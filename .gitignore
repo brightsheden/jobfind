@@ -1,0 +1,7 @@
+# Alembic cache or temp files (if any)
+alembic/versions/__pycache__/
+
+test.db
+.env
+myenv/
+__pycache__/
