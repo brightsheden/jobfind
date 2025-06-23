@@ -5,8 +5,23 @@ from sqlalchemy.orm import Session
 from .dependencies import get_db
 from .models import WaitList
 from .schema import WaitListSchema
+from fastapi.middleware.cors import CORSMiddleware
+
+
+
+
+
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/waitlist")
